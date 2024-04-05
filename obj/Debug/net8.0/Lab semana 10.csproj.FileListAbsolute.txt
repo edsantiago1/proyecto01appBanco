@@ -1,0 +1,14 @@
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\bin\Debug\net8.0\Lab semana 10.exe
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\bin\Debug\net8.0\Lab semana 10.deps.json
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\bin\Debug\net8.0\Lab semana 10.runtimeconfig.json
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\bin\Debug\net8.0\Lab semana 10.dll
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\bin\Debug\net8.0\Lab semana 10.pdb
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.AssemblyInfoInputs.cache
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.AssemblyInfo.cs
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.csproj.CoreCompileInputs.cache
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.dll
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\refint\Lab semana 10.dll
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.pdb
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.genruntimeconfig.cache
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\ref\Lab semana 10.dll
