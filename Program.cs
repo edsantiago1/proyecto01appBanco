@@ -1,36 +1,23 @@
-namespace Semana10{
+﻿namespace Semana10{
 
     class Program1{
-        public static void Main(){
-            bool menu = true;
-            while(menu){
-            menuApp(menu);
-            }
-        }
-
-        public static void menuApp(bool menu){
-            bool solicitarDatos = false;
-            double saldoCuenta = 0;
+         public  void menuApp(bool menu, string[] datos,List<string> Logs){
+            double saldoCuenta = double.Parse(datos[5]);
             string titulo = "Sistema Bancario";
-            string[] datos = new string[6];
             string[] opciones = { "Ver informacion de la cuenta", "Compra de producto Financiero", "Venta de producto Financiero", "Abono a cuenta", "Simulacion paso del tiempo", "Salir" };
 
             Console.Clear();
 /*             Console.SetCursorPosition((Console.WindowHeight - titulo.Length) / 2, Console.CursorTop); */
             Console.WriteLine(titulo);
-            if(!solicitarDatos){
-                datos = tomaDatos();
-                solicitarDatos = true;
-                saldoCuenta = float.Parse(datos[5]);
-            }
-            opcionesPrincipales(opciones,datos,menu, saldoCuenta);
 
+            opcionesPrincipales(opciones,datos,menu, saldoCuenta,Logs);
+            
         }
 
-        public static string[] tomaDatos(){
+        public string[] tomaDatos(){
             string[] datos = new string[6];
             Console.WriteLine("1. Cuenta monetaria Quetzales.\n2.Cuenta monetaria Dolares\n3.Cuenta de ahorro en Quetzales.\n4.Cuenta de ahorro en Dolares.");
-            Console.Write("Seleccione su tipo de cuenta indicando la opcion acorde");
+            Console.Write("Seleccione su tipo de cuenta indicando la opcion acorde: ");
             int tipoCuenta = int.Parse(Console.ReadLine() ?? string.Empty );
             datos[0] = switchCase1(tipoCuenta);
             
@@ -39,14 +26,14 @@ namespace Semana10{
             Console.Write("Ingrese su nombre: ");
             datos[1] = Console.ReadLine() ?? string.Empty;
             do{
-                Console.Write("Ingrese su numero de DPI (Campo estrico de 5 caracteres)");
+                Console.Write("Ingrese su numero de DPI (Campo estrico de 5 caracteres): ");
                 datos[2] = Console.ReadLine() ?? string.Empty;
             } while(datos[2].Length < 5 || datos[2].Length > 5);
             
             Console.Write("Ingrese su direccion de residencia: ");
             datos[3] = Console.ReadLine() ?? string.Empty;
             
-            Console.WriteLine("Ingrese su numero de telefono: ");
+            Console.Write("Ingrese su numero de telefono: ");
             datos[4] = Console.ReadLine() ?? string.Empty;
 
             datos[5] = "2500";
@@ -85,20 +72,20 @@ namespace Semana10{
 
         }
 
-        public static void opcionesPrincipales(string[] opciones, string[] datos, bool menu, double saldoCuenta){
-            List<string> Logs = new List<string>();
+        public static string[] opcionesPrincipales(string[] opciones, string[] datos, bool menu, double saldoCuenta,List<string> Logs){
             for (int i = 0; i < opciones.Length; i++){
                 Console.WriteLine($"{i + 1}.{opciones[i]}");
             }
             Console.Write("Seleccione la accion que desea ejecutar indicando el numero de opcion: ");
             int menuOpciones = int.Parse(Console.ReadLine() ?? string.Empty);
-            switchCase2(menuOpciones, Logs, datos, menu, opciones, saldoCuenta);            
+            datos = switchCase2(menuOpciones, Logs, datos, menu, opciones, saldoCuenta);        
+            return datos;    
         }
     
 
             public static string[] switchCase2( int menuOpciones, List<string> Logs, string[] datos, bool menu, string[] opciones, double saldoCuenta){
             datos[5] = saldoCuenta.ToString();
-            var Opciones = new Opciones();
+            var Opciones = new OpcionesClass();
                switch (menuOpciones){
                     case 1:
                         Opciones.infoCuenta(datos);
@@ -170,47 +157,11 @@ namespace Semana10{
                         break;
 
                 }
+                datos[5] = saldoCuenta.ToString();
+                Console.ReadKey();
             return datos;
 
         }
     }
 
-    class Opciones{
-        /* "Ver informacion de la cuenta", "Compra de producto Financiero", "Venta de producto Financiero", "Abono a cuenta", "Simulacion paso del tiempo", "Salir" */
-        public void infoCuenta(string[] datos){
-            Console.Clear();
-            Console.WriteLine($"Tipo de cuenta: {datos[0]}\nNombre cuentaHabiente: {datos[1]}\nNo. de DPI: {datos[2]}\nDireccion: {datos[3]}\nNo. de Telefono: {datos[4]}\nSaldo de cuenta: ${datos[5]}");
-            
-        }
-
-        public double compraProducto(double saldoCuenta){
-            saldoCuenta = saldoCuenta - (saldoCuenta * 0.1);
-            Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}");
-            Console.ReadKey();
-            return saldoCuenta;
-        }
-
-        public double ventaProducto(double saldoCuenta){
-            return saldoCuenta;
-        }
-
-        public double abonoCuenta(double saldoCuenta){
-            return saldoCuenta;
-        }
-
-        public double pasoTiempo(double saldoCuenta){
-            return saldoCuenta;
-        }
-
-        public static void printLogs(List<string> Logs){
-            Console.WriteLine("\n\nLogs: ");
-                        for (int i = 0; i < Logs.Count; i++){
-                            Console.WriteLine(Logs[i]);
-                        }
-        }
-
-        public static void addLogs(List<string> Logs,string[] opciones, int menuOpciones){
-                        Logs.Add(opciones[menuOpciones - 1]);
-        }
-    }
-}
+}  

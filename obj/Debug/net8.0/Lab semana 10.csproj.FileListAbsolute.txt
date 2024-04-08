@@ -27,3 +27,4 @@ C:\Users\Public\Documents\repositorio Esdras\proyecto01appBanco\bin\Debug\net8.0
 C:\Users\Public\Documents\repositorio Esdras\proyecto01appBanco\bin\Debug\net8.0\Lab semana 10.pdb
 C:\Users\Public\Documents\repositorio Esdras\proyecto01appBanco\obj\Debug\net8.0\Lab semana 10.genruntimeconfig.cache
 C:\Users\Public\Documents\repositorio Esdras\proyecto01appBanco\obj\Debug\net8.0\ref\Lab semana 10.dll
+C:\Users\PC-JUANCHO\Desktop\Tareas\Primer semestre\Pensamiento computacional practica\Lab semana 10\obj\Debug\net8.0\Lab semana 10.sourcelink.json

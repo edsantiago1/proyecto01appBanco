@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mconcua\\.nuget\\packages\\": {}
+    "C:\\Users\\PC-JUANCHO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Public\\Documents\\repositorio Esdras\\proyecto01appBanco\\Lab semana 10.csproj",
+      "projectUniqueName": "C:\\Users\\PC-JUANCHO\\Desktop\\Tareas\\Primer semestre\\Pensamiento computacional practica\\Lab semana 10\\Lab semana 10.csproj",
       "projectName": "Lab semana 10",
-      "projectPath": "C:\\Users\\Public\\Documents\\repositorio Esdras\\proyecto01appBanco\\Lab semana 10.csproj",
-      "packagesPath": "C:\\Users\\mconcua\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Public\\Documents\\repositorio Esdras\\proyecto01appBanco\\obj\\",
+      "projectPath": "C:\\Users\\PC-JUANCHO\\Desktop\\Tareas\\Primer semestre\\Pensamiento computacional practica\\Lab semana 10\\Lab semana 10.csproj",
+      "packagesPath": "C:\\Users\\PC-JUANCHO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC-JUANCHO\\Desktop\\Tareas\\Primer semestre\\Pensamiento computacional practica\\Lab semana 10\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mconcua\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\PC-JUANCHO\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
