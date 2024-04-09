@@ -1,13 +1,12 @@
 ﻿namespace Semana10{
 
-    class Program1{
+    class ProgramClass{
          public  void menuApp(bool menu, string[] datos,List<string> Logs){
             double saldoCuenta = double.Parse(datos[5]);
             string titulo = "Sistema Bancario";
             string[] opciones = { "Ver informacion de la cuenta", "Compra de producto Financiero", "Venta de producto Financiero", "Abono a cuenta", "Simulacion paso del tiempo", "Salir" };
 
             Console.Clear();
-/*             Console.SetCursorPosition((Console.WindowHeight - titulo.Length) / 2, Console.CursorTop); */
             Console.WriteLine(titulo);
 
             opcionesPrincipales(opciones,datos,menu, saldoCuenta,Logs);
@@ -18,9 +17,13 @@
             string[] datos = new string[6];
             Console.WriteLine("1. Cuenta monetaria Quetzales.\n2.Cuenta monetaria Dolares\n3.Cuenta de ahorro en Quetzales.\n4.Cuenta de ahorro en Dolares.");
             Console.Write("Seleccione su tipo de cuenta indicando la opcion acorde: ");
-            int tipoCuenta = int.Parse(Console.ReadLine() ?? string.Empty );
-            datos[0] = switchCase1(tipoCuenta);
-            
+            string? tipoCuentaString = Console.ReadLine();
+            if(tipoCuentaString == ""){
+                switchCase1(0);
+            }else{
+                int tipoCuentaInt = int.Parse(tipoCuentaString ?? string.Empty);
+                datos[0] = switchCase1(tipoCuentaInt);
+            }
             Console.WriteLine("A continuacion ingrese los datos solicitados");
             
             Console.Write("Ingrese su nombre: ");
@@ -77,14 +80,21 @@
                 Console.WriteLine($"{i + 1}.{opciones[i]}");
             }
             Console.Write("Seleccione la accion que desea ejecutar indicando el numero de opcion: ");
-            int menuOpciones = int.Parse(Console.ReadLine() ?? string.Empty);
-            datos = switchCase2(menuOpciones, Logs, datos, menu, opciones, saldoCuenta);        
+            string? menuOpciones = Console.ReadLine();
+            if(menuOpciones==""){
+                Console.Clear();
+                Console.WriteLine("Debe ingresar un valor");
+                Console.ReadKey();
+            }else{
+            int menuOpcionesVal = int.Parse(menuOpciones ?? string.Empty);
+            datos = switchCase2(menuOpcionesVal, Logs, datos, menu, opciones, saldoCuenta);        
+            }
             return datos;    
         }
     
 
             public static string[] switchCase2( int menuOpciones, List<string> Logs, string[] datos, bool menu, string[] opciones, double saldoCuenta){
-            datos[5] = saldoCuenta.ToString();
+            datos[5] = saldoCuenta.ToString("f2");
             var Opciones = new OpcionesClass();
                switch (menuOpciones){
                     case 1:
@@ -96,38 +106,17 @@
                         saldoCuenta = Opciones.compraProducto(saldoCuenta);
                         Opciones.addLogs(Logs, opciones, menuOpciones);
                     break;
-/* 
 
                     case 3:
-                        Console.Clear();
-                        if (saldoCuenta >= 500){
-                            saldoCuenta = saldoCuenta + (saldoCuenta * 0.11);
-                            Logs.Add(opciones[menuOpciones - 1]);
-                            Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}");
-                        }
-                        else{
-                            Console.WriteLine($"No es factible realizar esta transaccion debido al bajo saldo de la cuenta, el porcentaje de ganacia si se realiza seria: {(saldoCuenta * 0.11).ToString("f2")}");
-                        }
-                        Console.ReadKey();
-                        break;
+                       saldoCuenta = Opciones.ventaProducto(saldoCuenta);
+                       Opciones.addLogs(Logs, opciones, menuOpciones); 
+                    break;
 
                     case 4:
-                        if (abonarCuenta >= 30){
-                            contadorAbono = 0;
-                            abonarCuenta = 0;
-                        }
-                        Console.Clear();
-                        if (contadorAbono < 2 && saldoCuenta < 500){
-                            saldoCuenta = saldoCuenta * 2;
-                            Logs.Add(opciones[menuOpciones - 1]);
-                            Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}");
-                            contadorAbono++;
-                        }
-                        else{
-                            Console.WriteLine("No se cumplen las condiciones necesarias para realizar esta accion.");
-                        }
-                        Console.ReadKey();
+                        saldoCuenta = Opciones.abonoCuenta(saldoCuenta);
+                        Opciones.addLogs(Logs, opciones, menuOpciones);
                         break;
+/* 
 
                     case 5:
 
@@ -145,10 +134,11 @@
                         Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}, genero: {intereses.ToString("f2")} en intereses.");
                         Console.ReadKey();
                         break;
-
+*/
                     case 6:
                         menu = false;
-                        break; */
+                        
+                        break; 
 
                     default:
                         Console.Clear();
