@@ -13,7 +13,7 @@ namespace Semana10{
             Console.WriteLine(titulo);
             datos = program.tomaDatos();
             while(menu){
-                program.menuApp(menu,datos,Logs);
+                menu = program.menuApp(menu,datos,Logs);
             }
         }
     }

@@ -1,7 +1,10 @@
-﻿namespace Semana10{
+﻿using System.Collections.Concurrent;
+
+namespace Semana10{
 
     class ProgramClass{
-         public  void menuApp(bool menu, string[] datos,List<string> Logs){
+        public static bool menu1 = true;
+         public bool menuApp(bool menu, string[] datos,List<string> Logs){
             double saldoCuenta = double.Parse(datos[5]);
             string titulo = "Sistema Bancario";
             string[] opciones = { "Ver informacion de la cuenta", "Compra de producto Financiero", "Venta de producto Financiero", "Abono a cuenta", "Simulacion paso del tiempo", "Salir" };
@@ -10,6 +13,7 @@
             Console.WriteLine(titulo);
 
             opcionesPrincipales(opciones,datos,menu, saldoCuenta,Logs);
+            return menu1;
             
         }
 
@@ -95,6 +99,7 @@
 
             public static string[] switchCase2( int menuOpciones, List<string> Logs, string[] datos, bool menu, string[] opciones, double saldoCuenta){
             datos[5] = saldoCuenta.ToString("f2");
+            double intereses = 0;
             var Opciones = new OpcionesClass();
                switch (menuOpciones){
                     case 1:
@@ -116,27 +121,16 @@
                         saldoCuenta = Opciones.abonoCuenta(saldoCuenta);
                         Opciones.addLogs(Logs, opciones, menuOpciones);
                         break;
-/* 
+ 
 
                     case 5:
+                        saldoCuenta = Opciones.pasoTiempo(saldoCuenta, intereses);
+                        Opciones.addLogs(Logs, opciones, menuOpciones);
 
-                        Console.Write("Ingrese el periodo de capitalizacion deseado en dias: ");
-                        periodoCapitalizacion = int.Parse(Console.ReadLine() ?? string.Empty);
-                        abonarCuenta += periodoCapitalizacion;
-                        for (int i = 1; i < periodoCapitalizacion; i++){
-                            Console.WriteLine($"Dia numero: {i}");
-                            Thread.Sleep(1000);
-                            Console.Clear();
-                        }
-                        float intereses = saldoCuenta * 0.02 * periodoCapitalizacion / 360;
-                        saldoCuenta = saldoCuenta + intereses;
-                        Logs.Add(opciones[menuOpciones - 1]);
-                        Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}, genero: {intereses.ToString("f2")} en intereses.");
-                        Console.ReadKey();
                         break;
-*/
+
                     case 6:
-                        menu = false;
+                        menu1 = false;
                         
                         break; 
 

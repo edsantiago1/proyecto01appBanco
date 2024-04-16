@@ -48,8 +48,35 @@ namespace Semana10
             return saldoCuenta;
         }
 
-        public double pasoTiempo(double saldoCuenta)
+        public double pasoTiempo(double saldoCuenta,double intereses)
         {
+            int Seleccion;
+            double periodoCapitalizacion = 0;
+            Console.WriteLine("Seleccion el periodo de Capitalizacion deseado, indicando el numero de opcion");
+            Console.Write("1. 15 dias.\n2. 30 dias.");
+            string? periodocapitalizacionString = Console.ReadLine();
+            if(periodocapitalizacionString == ""){
+                Seleccion = 0;
+            }else{
+                Seleccion = int.Parse(periodocapitalizacionString ?? string.Empty);
+            }
+            switch (Seleccion){
+                case 1:
+                periodoCapitalizacion = 15;
+                break;
+
+                case 2:
+                periodoCapitalizacion = 30;
+                break;
+
+                default:
+                Console.WriteLine("Opcion invalida");
+                break;
+            }  
+            intereses = saldoCuenta *  0.02 * (periodoCapitalizacion/360);
+            saldoCuenta += intereses;
+            Console.WriteLine($"Saldo de cuenta: {saldoCuenta.ToString("f2")}, generó: {intereses.ToString("f2")} en intereses.");
+            Console.ReadKey();
             return saldoCuenta;
         }
 
